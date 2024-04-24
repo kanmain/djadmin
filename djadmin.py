@@ -1,25 +1,26 @@
 #!/usr/bin/env python3
 
-from utils import create_django_project, config_settings
-
+from utils import (
+        create_django_project, config_settings, start_django_app
+    )
 
 def main():
         
     while True:
         print("\n=== MENU DJANGO ADMIN ===")
         print("1. Start Django project")
-        # print("2. Memodifikasi file config/settings.py")
+        print("2. Start Django app")
         # print("3. Membuat aplikasi")
         print("0. Quit")
         print("=========================")
         choice = input("Pilih menu: ")
 
         if choice == "1":
-            # create_django_project()
+            create_django_project()
             config_settings()
 
-        # elif choice == "2":
-        #     modify_settings_and_move_secret_key()
+        elif choice == "2":
+            start_django_app()
 
         elif choice == "0":
             # print("Terima kasih telah menggunakan DJ Admin. Sampai jumpa!\n")

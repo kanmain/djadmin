@@ -19,12 +19,29 @@ def copy_files_recursive(source_dir, destination_dir, debug=False):
     except Exception as e:
         print(f"An error occurred: {e}")
 
-def file_replace_text(file_text, old_text, new_text):
+def file_replace_text(file_text, old_text, new_text, mode='replace'):
     with open(file_text, 'r') as file:
         lines = file.readlines()
 
     with open(file_text, 'w') as file:
         for line in lines:
             if old_text in line:
-                line = line.replace(old_text, new_text)
+                if mode == 'replace':
+                    line = line.replace(old_text, new_text)
+                if mode == 'append':
+                    line = line.strip() + new_text
+                    
             file.write(line)
+            
+def file_append(file_path, text):
+    with open(file_path, 'a') as file:
+        file.write(text)
+
+def file_write(file_path, text):
+    with open(file_path, 'w') as file:
+        file.write(text)
+        
+def file_read(file_path):
+    with open(file_path, 'r') as file:
+        file_content = file.read()
+    return file_content

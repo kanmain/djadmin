@@ -1,5 +1,6 @@
 '''
-DjAdmin v1.0.20240424 - bukanmainapp@gmail.com
+DjAdmin v1.0.20240424
+https://github.com/kanmain/djadmin
 '''
 
 from decouple import config, Csv
@@ -14,4 +15,6 @@ THIRD_PARTY_APPS = config('THIRD_PARTY_APPS', cast=Csv())
 
 CUSTOM_APPS = config('CUSTOM_APPS', cast=Csv())
 
-INSTALLED_APPS = INSTALLED_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
+TIME_ZONE = config('TIME_ZONE', cast=str, default='Asia/Jakarta')
+
+INSTALLED_APPS += THIRD_PARTY_APPS + CUSTOM_APPS
